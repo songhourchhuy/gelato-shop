@@ -4,75 +4,68 @@ const flavors = [
     { name: 'Chocolate', price: 1.90, category: 'normal', image: 'https://via.placeholder.com/150' },
     { name: 'Pistachio', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150' },
     { name: 'Mango', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150' },
-    { name: 'Ice Cream Pack', price: 5.00, category: 'takeaway', image: 'https://via.placeholder.com/150' },
+    { name: 'Ice Cream Pack (500g)', price: 15.90, category: 'takeaway', image: 'https://via.placeholder.com/150' },
+    { name: 'Ice Cream Pack (750g)', price: 24.90, category: 'takeaway', image: 'https://via.placeholder.com/150' },
+    { name: 'Ice Cream Pack (1000g)', price: 30.00, category: 'takeaway', image: 'https://via.placeholder.com/150' },
     { name: 'Chocolate Chips', price: 0.50, category: 'add-ons', image: 'https://via.placeholder.com/150' },
-    { name: 'Fruit Toppings', price: 0.80, category: 'add-ons', image: 'https://via.placeholder.com/150' }
+    { name: 'Fruit Toppings', price: 0.80, category: 'add-ons', image: 'https://via.placeholder.com/150' },
+    { name: 'Waffle x10pcs', price: 0.80, category: 'add-ons', image: 'https://via.placeholder.com/150' },
+    { name: 'Cone', price: 0.50, category: 'add-ons', image: 'https://via.placeholder.com/150' }
 ];
 
-// Function to render the categories
-function displayCategories() {
-    const categories = ['normal', 'special', 'takeaway', 'add-ons'];
-    categories.forEach(category => {
-        const categoryDiv = document.getElementById(`${category}-gelato`);
-        const categoryItems = flavors.filter(flavor => flavor.category === category);
+let selectedFlavors = [];
 
-        categoryItems.forEach(flavor => {
+// Function to render the categories
+function displayCategories(category = 'all') {
+    const categories = ['normal', 'special', 'takeaway', 'add-ons'];
+    
+    categories.forEach(c => {
+        const categoryDiv = document.getElementById(`${c}-gelato`);
+        categoryDiv.innerHTML = '';  // Clear category section
+        
+        const categoryItems = flavors.filter(flavor => flavor.category === c || category === 'all');
+        
+        // Display the items in rows of 3
+        categoryItems.forEach((flavor, index) => {
+            if (index % 3 === 0) {
+                const row = document.createElement('div');
+                row.classList.add('row');
+                categoryDiv.appendChild(row);
+            }
+            
             const flavorDiv = document.createElement('div');
             flavorDiv.classList.add('item');
             flavorDiv.innerHTML = `
                 <img src="${flavor.image}" alt="${flavor.name}">
                 <h3>${flavor.name} - $${flavor.price}</h3>
-                <button onclick="addToCart('${flavor.name}', ${flavor.price})">Add to Cart</button>
+                <button onclick="addToCart('${flavor.name}', ${flavor.price}, '${flavor.category}')">Add to Cart</button>
             `;
-            categoryDiv.appendChild(flavorDiv);
+            categoryDiv.querySelector('.row').appendChild(flavorDiv);
         });
     });
 }
 
-// Filter flavors based on the search input
-function filterFlavors() {
-    const searchQuery = document.getElementById('search').value.toLowerCase();
-    const filteredFlavors = flavors.filter(flavor => flavor.name.toLowerCase().includes(searchQuery));
-    
-    // Clear all category sections before re-rendering
-    document.querySelectorAll('.category').forEach(categoryDiv => categoryDiv.innerHTML = '');
-    
-    // Re-render categories with filtered results
-    filteredFlavors.forEach(flavor => {
-        const categoryDiv = document.getElementById(`${flavor.category}-gelato`);
-        const flavorDiv = document.createElement('div');
-        flavorDiv.classList.add('item');
-        flavorDiv.innerHTML = `
-            <img src="${flavor.image}" alt="${flavor.name}">
-            <h3>${flavor.name} - $${flavor.price}</h3>
-            <button onclick="addToCart('${flavor.name}', ${flavor.price})">Add to Cart</button>
-        `;
-        categoryDiv.appendChild(flavorDiv);
-    });
-}
+function addToCart(item, price, category) {
+    // Handle special cart logic for Takeaway packs
+    if (category === 'takeaway') {
+        let maxFlavors = 0;
+        if (item === 'Ice Cream Pack (500g)') maxFlavors = 3;
+        if (item === 'Ice Cream Pack (750g)') maxFlavors = 4;
+        if (item === 'Ice Cream Pack (1000g)') maxFlavors = 6;
 
-function addToCart(item, price) {
+        const selectedFlavorsForPack = prompt(`Select up to ${maxFlavors} flavors from Normal or Special Gelato categories.`);
+        selectedFlavors.push(selectedFlavorsForPack);
+    }
+
     cart.push({ item, price });
     updateCart();
 }
 
 function updateCart() {
-    // Update cart count
     document.getElementById('cart-count').innerText = cart.length;
 }
 
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCart();
-    displayCart();
-}
-
 function viewCart() {
-    displayCart();
-    document.getElementById('cart-modal').style.display = 'block';
-}
-
-function displayCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = ''; // Clear the current cart items
 
@@ -88,17 +81,32 @@ function displayCart() {
 
     const totalPrice = cart.reduce((total, item) => total + item.price, 0);
     cartItemsContainer.innerHTML += `<h3>Total: $${totalPrice.toFixed(2)}</h3>`;
+
+    document.getElementById('cart-modal').style.display = 'block';
 }
 
-function clearCart() {
-    cart = [];
+function removeItem(index) {
+    cart.splice(index, 1);
     updateCart();
-    displayCart();
+    viewCart();
 }
 
 function closeCart() {
     document.getElementById('cart-modal').style.display = 'none';
 }
 
+// Filter flavors based on the search input
+function filterFlavors() {
+    const searchQuery = document.getElementById('search').value.toLowerCase();
+    const filteredFlavors = flavors.filter(flavor => flavor.name.toLowerCase().includes(searchQuery));
+    displayCategories(filteredFlavors);
+}
+
+function showCategory(category) {
+    displayCategories(category);
+}
+
 // Initialize the app
-window.onload = displayCategories;
+window.onload = function() {
+    displayCategories();
+};
