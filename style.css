@@ -1,39 +1,36 @@
-/* Modal Styles */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
+/* Row Styles */
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
 }
 
-.modal-content {
+.item {
+    width: 30%;
+    padding: 10px;
     background-color: #fff;
-    margin: 10% auto;
-    padding: 20px;
+    margin: 10px;
     border-radius: 8px;
-    width: 60%;
-    max-width: 600px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-button {
+.category-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.category-btn {
     background-color: #FFB400;
-    border: none;
     padding: 10px 20px;
     color: white;
-    cursor: pointer;
+    border: none;
     border-radius: 5px;
-    margin-top: 10px;
+    cursor: pointer;
+    margin: 0 5px;
 }
 
-button:hover {
+.category-btn:hover {
     background-color: #ff8c00;
-}
-
-.cart-item {
-    margin-bottom: 10px;
 }
