@@ -23,21 +23,25 @@ input[type="text"] {
 /* Category Navigation Bar */
 .category-nav {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;  /* Align categories to the left */
     margin-top: 20px;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;  /* Enable horizontal scrolling */
+    -webkit-overflow-scrolling: touch;  /* Smooth scrolling for mobile devices */
+    padding: 0 10px;  /* Add padding to avoid cutting off the first and last categories */
+    width: 100%;  /* Ensure the container spans the full width */
+    box-sizing: border-box;  /* Include padding in total width calculation */
 }
 
 .category-bar {
     padding: 10px 20px;
     background-color: #FFB400;
-    margin: 0 10px;
+    margin-right: 10px;  /* Space between categories */
     border-radius: 5px;
     color: white;
     cursor: pointer;
     font-weight: bold;
     text-align: center;
+    white-space: nowrap;  /* Ensure the text doesn't wrap */
 }
 
 .category-bar:hover {
@@ -48,6 +52,7 @@ input[type="text"] {
 .category-bar.active {
     background-color: #ff8c00;
 }
+
 
 /* Category items grid */
 .category-items {
