@@ -13,7 +13,7 @@
         <!-- Search bar -->
         <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" />
 
-        <!-- Categories Scrollable Section -->
+        <!-- Categories Navigation -->
         <div class="category-navigation">
             <button class="category-btn" onclick="showCategory('all')">All</button>
             <button class="category-btn" onclick="showCategory('normal')">Normal Gelato</button>
@@ -22,7 +22,7 @@
             <button class="category-btn" onclick="showCategory('add-ons')">Add-ons</button>
         </div>
 
-        <!-- Categories Section -->
+        <!-- Categories Sections -->
         <div id="normal-gelato" class="category">
             <h2>Normal Gelato</h2>
         </div>
@@ -36,7 +36,7 @@
             <h2>Add-ons</h2>
         </div>
 
-        <!-- Cart Icon (Number of items in cart) -->
+        <!-- Cart Icon -->
         <div class="cart-icon" onclick="viewCart()">
             <span id="cart-count">0</span> <img src="cart-icon.png" alt="Cart" />
         </div>
