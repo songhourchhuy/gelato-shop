@@ -57,17 +57,6 @@ function capitalizeFirstLetter(string) {
 }
 
 function addToCart(item, price, category) {
-    // Handle special cart logic for Takeaway packs
-    if (category === 'takeaway') {
-        let maxFlavors = 0;
-        if (item === 'Ice Cream Pack (500g)') maxFlavors = 3;
-        if (item === 'Ice Cream Pack (750g)') maxFlavors = 4;
-        if (item === 'Ice Cream Pack (1000g)') maxFlavors = 6;
-
-        const selectedFlavorsForPack = prompt(`Select up to ${maxFlavors} flavors from Normal or Special Gelato categories.`);
-        selectedFlavors.push(selectedFlavorsForPack);
-    }
-
     cart.push({ item, price });
     updateCart();
 }
