@@ -1,7 +1,10 @@
+/* Body and layout styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -31,22 +34,7 @@ input[type="text"] {
     cursor: pointer;
 }
 
-.item {
-    display: inline-block;
-    width: 200px;
-    padding: 10px;
-    background-color: #fff;
-    margin: 10px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-.item img {
-    max-width: 100%;
-    border-radius: 8px;
-}
-
+/* Button styles */
 button {
     background-color: #FFB400;
     border: none;
@@ -61,7 +49,130 @@ button:hover {
     background-color: #ff8c00;
 }
 
+/* Category Navigation */
+.category-navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    overflow-x: auto;  /* Allow horizontal scrolling */
+}
+
+.category-btn {
+    background-color: #FFB400;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.category-btn:hover {
+    background-color: #ff8c00;
+}
+
+/* Category Section */
 .category {
     margin-top: 40px;
     text-align: left;
+    display: none;  /* Hide categories initially */
+}
+
+/* Row Styles for Product Display */
+.row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.item {
+    width: 30%;
+    padding: 10px;
+    background-color: #fff;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Icon styling */
+.item-icon {
+    width: 30px;  /* Size of the icon */
+    height: 30px;
+    margin-top: 10px;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 60%;
+    max-width: 600px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item {
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item button {
+    background-color: #FFB400;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.cart-item button:hover {
+    background-color: #ff8c00;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Additional styling for the cart modal */
+#cart-items {
+    margin-bottom: 20px;
+}
+
+#cart-items h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#cart-count {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Hover and focus styles */
+.category-btn:hover,
+.cart-item button:hover {
+    background-color: #ff8c00;
 }
