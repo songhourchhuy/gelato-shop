@@ -11,7 +11,7 @@
         <h1>Gelato Shop</h1>
 
         <!-- Search bar -->
-        <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" />
+        <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" style="display:none;" />
 
         <!-- Categories Navigation -->
         <div class="category-navigation">
@@ -22,17 +22,17 @@
             <button class="category-btn" onclick="showCategory('add-ons')">Add-ons</button>
         </div>
 
-        <!-- Categories Sections -->
-        <div id="normal-gelato" class="category">
+        <!-- Categories Sections (Initially empty) -->
+        <div id="normal-gelato" class="category" style="display:none;">
             <h2>Normal Gelato</h2>
         </div>
-        <div id="special-gelato" class="category">
+        <div id="special-gelato" class="category" style="display:none;">
             <h2>Special Gelato</h2>
         </div>
-        <div id="takeaway-packs" class="category">
+        <div id="takeaway-packs" class="category" style="display:none;">
             <h2>TakeAway Packs</h2>
         </div>
-        <div id="add-ons" class="category">
+        <div id="add-ons" class="category" style="display:none;">
             <h2>Add-ons</h2>
         </div>
 
