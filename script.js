@@ -1,17 +1,17 @@
 let cart = [];
 const flavors = [
     { name: 'Vanilla', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Vanilla.png' },
- { name: 'Mango', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Mango.png' },
- { name: 'Strawberry', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Strawberry.png' },
- { name: 'Mint', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Mint.png' },
- { name: 'Passion', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Passion.png' },
+    { name: 'Mango', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Mango.png' },
+    { name: 'Strawberry', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Strawberry.png' },
+    { name: 'Mint', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Mint.png' },
+    { name: 'Passion', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Passion.png' },
     { name: 'Chocolate', price: 1.90, category: 'normal', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Chocolate.png' },
     { name: 'Pistachio', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Pistachio.png' },
     { name: 'Coconut', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Coconut.png' },
-  { name: 'White Truffle', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/White%20Truffle.png' },
-  { name: 'Matcha Green Tea', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Matcha%20Green%20Tea.png' },
-  { name: 'Caramel Popcorn', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Caramel%20Popcorn.png' },
-  { name: 'Blueberry', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Blueberry.png' },
+    { name: 'White Truffle', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/White%20Truffle.png' },
+    { name: 'Matcha Green Tea', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Matcha%20Green%20Tea.png' },
+    { name: 'Caramel Popcorn', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Caramel%20Popcorn.png' },
+    { name: 'Blueberry', price: 2.10, category: 'special', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Blueberry.png' },
     { name: '500g Family Pack', price: 15.90, category: 'takeaway', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Durian.png' },
     { name: '750g Family Pack', price: 24.50, category: 'takeaway', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Durian.png' },
     { name: '1000g Family Pack', price: 30.00, category: 'takeaway', image: 'https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Menu%20image/Durian.png' },
@@ -21,7 +21,7 @@ const flavors = [
 
 // Function to render the categories
 function displayCategories() {
-    const categories = ['normal', 'special', 'takeaway', 'add-ons']; // Added 'add-ons' category
+    const categories = ['normal', 'special', 'takeaway', 'add-ons'];
     categories.forEach(category => {
         const categoryDiv = document.getElementById('category-items');
         const categoryItems = flavors.filter(flavor => flavor.category === category);
@@ -31,7 +31,8 @@ function displayCategories() {
             flavorDiv.classList.add('item');
             flavorDiv.innerHTML = `
                 <img src="${flavor.image}" alt="${flavor.name}">
-                <h3>${flavor.name} - $${flavor.price}</h3>
+                <h3>${flavor.name}</h3>
+                <div class="price">$${flavor.price}</div>
                 <button onclick="addToCart('${flavor.name}', ${flavor.price})">Add to Cart</button>
             `;
             categoryDiv.appendChild(flavorDiv);
@@ -109,12 +110,18 @@ function showCart() {
     renderCart();  // Render cart items inside the modal
     const cartModal = document.getElementById('cart-modal');
     cartModal.style.display = 'block';
+    cartModal.style.transform = 'translateY(0)'; // Slide up the modal
+    document.getElementById('view-cart-btn').style.display = 'none'; // Hide the View Cart button
 }
 
 // Function to close the cart modal
 function closeCart() {
     const cartModal = document.getElementById('cart-modal');
-    cartModal.style.display = 'none';
+    cartModal.style.transform = 'translateY(100%)'; // Slide down the modal
+    setTimeout(() => {
+        cartModal.style.display = 'none';
+        document.getElementById('view-cart-btn').style.display = 'block'; // Show the View Cart button again
+    }, 300); // Wait for the animation to complete before hiding the modal
 }
 
 // Initialize the app
@@ -122,5 +129,5 @@ window.onload = function() {
     filterCategory('normal'); // Load 'normal' category by default
 };
 
-// Event Listener for the Cart Icon to open the Cart Modal
-document.getElementById('cart-icon').addEventListener('click', showCart);
+// Event Listener for the View Cart Button to open the Cart Modal
+document.getElementById('view-cart-btn').addEventListener('click', showCart);
