@@ -1,12 +1,12 @@
 let cart = [];
 const flavors = [
-    { name: 'Vanilla', price: 1.90, category: 'normal', image: 'https://via.placeholder.com/150' },
-    { name: 'Chocolate', price: 1.90, category: 'normal', image: 'https://via.placeholder.com/150' },
-    { name: 'Pistachio', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150' },
-    { name: 'Mango', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150' },
-    { name: 'Ice Cream Pack', price: 5.00, category: 'takeaway', image: 'https://via.placeholder.com/150' },
-    { name: 'Chocolate Chips', price: 0.50, category: 'add-ons', image: 'https://via.placeholder.com/150' },
-    { name: 'Fruit Toppings', price: 0.80, category: 'add-ons', image: 'https://via.placeholder.com/150' }
+    { name: 'Vanilla', price: 1.90, category: 'normal', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Vanilla.png' }, 
+    { name: 'Chocolate', price: 1.90, category: 'normal', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Chocolate.png' },  },
+    { name: 'Pistachio', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Pistachio.png' },  },
+    { name: 'Mango', price: 2.10, category: 'special', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Mango.png' },  },
+    { name: 'Ice Cream Pack', price: 5.00, category: 'takeaway', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Chocolate.png' },  },
+    { name: 'Chocolate Chips', price: 0.50, category: 'add-ons', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Chocolate.png' },  },
+    { name: 'Fruit Toppings', price: 0.80, category: 'add-ons', image: 'https://via.placeholder.com/150', icon:  'https://github.com/songhourchhuy/gelato-shop/blob/main/Menu%20image/Chocolate.png' },  }
 ];
 
 // Function to render the categories
