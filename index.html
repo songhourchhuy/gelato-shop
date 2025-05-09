@@ -9,22 +9,31 @@
 <body>
     <div class="container">
         <h1>Gelato Shop</h1>
-        <div class="item">
-            <img src="https://via.placeholder.com/150" alt="Vanilla Gelato">
-            <h3>Vanilla - $1.90</h3>
-            <button onclick="addToCart('Vanilla', 1.90)">Add to Cart</button>
+
+        <!-- Search bar -->
+        <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" />
+        
+        <!-- Cart Icon (Number of items in cart) -->
+        <div class="cart-icon">
+            <span id="cart-count">0</span> <img src="cart-icon.png" alt="Cart" />
         </div>
-        <div class="item">
-            <img src="https://via.placeholder.com/150" alt="Chocolate Gelato">
-            <h3>Chocolate - $1.90</h3>
-            <button onclick="addToCart('Chocolate', 1.90)">Add to Cart</button>
+
+        <!-- Categories Section -->
+        <div id="normal-gelato" class="category">
+            <h2>Normal Gelato</h2>
+            <!-- Gelato flavors will be displayed here -->
         </div>
-        <div class="cart">
-            <h2>Your Cart</h2>
-            <div id="cart-items"></div>
-            <button onclick="checkout()">Checkout</button>
+        <div id="special-gelato" class="category">
+            <h2>Special Gelato</h2>
+        </div>
+        <div id="takeaway-packs" class="category">
+            <h2>TakeAway Packs</h2>
+        </div>
+        <div id="add-ons" class="category">
+            <h2>Add-ons</h2>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
