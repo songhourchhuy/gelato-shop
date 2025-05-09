@@ -49,19 +49,17 @@ input[type="text"] {
     background-color: #ff8c00;
 }
 
-/* Category items display */
+/* Category items grid */
 .category-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* 3 items per row */
+    gap: 20px;  /* space between items */
     margin-top: 20px;
 }
 
 .item {
     background-color: #fff;
     padding: 10px;
-    margin: 10px;
-    width: 200px;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
