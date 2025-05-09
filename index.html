@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelato Shop</title>
+    <link rel="stylesheet" href="style.css?v=1.0.0">
+</head>
+<body>
+    <div class="container">
+        <h1>Gelato Shop</h1>
+
+        <!-- Cart Icon (Number of items in cart) -->
+        <div id="cart-icon" class="cart-icon">
+            <span id="cart-count">0</span> <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Mini%20App%20Icon/Cart.png?raw=true" alt="Cart" />
+        </div>
+
+        <!-- Categories Section -->
+        <div class="category-nav">
+            <div class="category-bar" onclick="filterCategory('normal')">Normal</div>
+            <div class="category-bar" onclick="filterCategory('special')">Special</div>
+            <div class="category-bar" onclick="filterCategory('takeaway')">TakeAway</div>
+            <div class="category-bar" onclick="filterCategory('add-ons')">Add-ons</div> <!-- New Add-ons Category -->
+        </div>
+
+        <div id="category-items" class="category-items">
+            <!-- Items will be dynamically loaded here based on category selection -->
+        </div>
+
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCart()">×</span>
+                <h2>Your Cart</h2>
+                <div id="cart-items"></div>
+                <button onclick="checkout()">Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=1.0.0"></script>
+</body>
+</html>
