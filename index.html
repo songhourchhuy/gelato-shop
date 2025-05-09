@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelato Shop</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gelato Shop</h1>
+
+        <!-- Search bar -->
+        <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" />
+        
+        <!-- Cart Icon (Number of items in cart) -->
+        <div class="cart-icon">
+            <span id="cart-count">0</span> <img src="cart-icon.png" alt="Cart" />
+        </div>
+
+        <!-- Categories Section -->
+        <div id="normal-gelato" class="category">
+            <h2>Normal Gelato</h2>
+            <!-- Gelato flavors will be displayed here -->
+        </div>
+        <div id="special-gelato" class="category">
+            <h2>Special Gelato</h2>
+        </div>
+        <div id="takeaway-packs" class="category">
+            <h2>TakeAway Packs</h2>
+        </div>
+        <div id="add-ons" class="category">
+            <h2>Add-ons</h2>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
