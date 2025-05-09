@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gelato Shop</title>
-    <link rel="stylesheet" href="style.css?v=1.0.0"> <!-- Versioning added -->
+    <link rel="stylesheet" href="style.css?v=1.0.0">
 </head>
 <body>
     <div class="container">
@@ -14,7 +14,7 @@
         <input type="text" id="search" placeholder="Search for flavors..." oninput="filterFlavors()" />
 
         <!-- Cart Icon (Number of items in cart) -->
-        <div class="cart-icon">
+        <div class="cart-icon" onclick="viewCart()">
             <span id="cart-count">0</span> <img src="cart-icon.png" alt="Cart" />
         </div>
 
@@ -31,8 +31,20 @@
         <div id="add-ons" class="category">
             <h2>Add-ons</h2>
         </div>
+
+        <!-- Cart Modal -->
+        <div id="cart-modal" class="modal">
+            <div class="modal-content">
+                <h2>Your Cart</h2>
+                <div id="cart-items">
+                    <!-- Cart items will be displayed here -->
+                </div>
+                <button onclick="clearCart()">Clear Cart</button>
+                <button onclick="closeCart()">Close</button>
+            </div>
+        </div>
     </div>
 
-    <script src="script.js?v=1.0.0"></script> <!-- Versioning added -->
+    <script src="script.js?v=1.0.0"></script>
 </body>
 </html>
