@@ -19,29 +19,41 @@ let selectedFlavors = [];
 function displayCategories(category = 'all') {
     const categories = ['normal', 'special', 'takeaway', 'add-ons'];
     
+    // Hide all categories initially
     categories.forEach(c => {
         const categoryDiv = document.getElementById(`${c}-gelato`);
-        categoryDiv.innerHTML = '';  // Clear category section
-        
-        const categoryItems = flavors.filter(flavor => flavor.category === c || category === 'all');
-        
-        // Display the items in rows of 3
-        categoryItems.forEach((flavor, index) => {
-            if (index % 3 === 0) {
-                const row = document.createElement('div');
-                row.classList.add('row');
-                categoryDiv.appendChild(row);
-            }
-            
-            const flavorDiv = document.createElement('div');
-            flavorDiv.classList.add('item');
-            flavorDiv.innerHTML = `
-                <img src="${flavor.image}" alt="${flavor.name}">
-                <h3>${flavor.name} - $${flavor.price}</h3>
-                <button onclick="addToCart('${flavor.name}', ${flavor.price}, '${flavor.category}')">Add to Cart</button>
-            `;
-            categoryDiv.querySelector('.row').appendChild(flavorDiv);
+        categoryDiv.style.display = 'none';
+    });
+    
+    // Show the selected category
+    if (category === 'all') {
+        categories.forEach(c => {
+            const categoryDiv = document.getElementById(`${c}-gelato`);
+            categoryDiv.style.display = 'block';
         });
+    } else {
+        const categoryDiv = document.getElementById(`${category}-gelato`);
+        categoryDiv.style.display = 'block';
+    }
+
+    // Filter flavors based on the selected category
+    const categoryItems = flavors.filter(flavor => flavor.category === category || category === 'all');
+    
+    // Display the items in rows of 3
+    categoryItems.forEach((flavor, index) => {
+        const categoryDiv = document.getElementById(`${flavor.category}-gelato`);
+        const row = document.createElement('div');
+        row.classList.add('row');
+        categoryDiv.appendChild(row);
+
+        const flavorDiv = document.createElement('div');
+        flavorDiv.classList.add('item');
+        flavorDiv.innerHTML = `
+            <img src="${flavor.image}" alt="${flavor.name}">
+            <h3>${flavor.name} - $${flavor.price}</h3>
+            <button onclick="addToCart('${flavor.name}', ${flavor.price}, '${flavor.category}')">Add to Cart</button>
+        `;
+        row.appendChild(flavorDiv);
     });
 }
 
@@ -65,6 +77,12 @@ function updateCart() {
     document.getElementById('cart-count').innerText = cart.length;
 }
 
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+    viewCart();
+}
+
 function viewCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = ''; // Clear the current cart items
@@ -85,8 +103,8 @@ function viewCart() {
     document.getElementById('cart-modal').style.display = 'block';
 }
 
-function removeItem(index) {
-    cart.splice(index, 1);
+function clearCart() {
+    cart = [];
     updateCart();
     viewCart();
 }
