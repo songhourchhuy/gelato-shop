@@ -18,30 +18,25 @@ let selectedFlavors = [];
 // Function to render the categories
 function displayCategories(category = 'all') {
     const categories = ['normal', 'special', 'takeaway', 'add-ons'];
-    
+
     // Hide all categories initially
     categories.forEach(c => {
         const categoryDiv = document.getElementById(`${c}-gelato`);
-        categoryDiv.style.display = 'none';
+        categoryDiv.style.display = 'none'; // Hide all categories
     });
     
     // Show the selected category
-    if (category === 'all') {
-        categories.forEach(c => {
-            const categoryDiv = document.getElementById(`${c}-gelato`);
-            categoryDiv.style.display = 'block';
-        });
-    } else {
-        const categoryDiv = document.getElementById(`${category}-gelato`);
-        categoryDiv.style.display = 'block';
-    }
+    const categoryDiv = document.getElementById(`${category}-gelato`);
+    categoryDiv.style.display = 'block'; // Only show the clicked category
 
     // Filter flavors based on the selected category
     const categoryItems = flavors.filter(flavor => flavor.category === category || category === 'all');
     
+    // Clear the category section before rendering
+    categoryDiv.innerHTML = `<h2>${capitalizeFirstLetter(category)} Gelato</h2>`;
+
     // Display the items in rows of 3
     categoryItems.forEach((flavor, index) => {
-        const categoryDiv = document.getElementById(`${flavor.category}-gelato`);
         const row = document.createElement('div');
         row.classList.add('row');
         categoryDiv.appendChild(row);
@@ -55,6 +50,10 @@ function displayCategories(category = 'all') {
         `;
         row.appendChild(flavorDiv);
     });
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 function addToCart(item, price, category) {
@@ -126,5 +125,5 @@ function showCategory(category) {
 
 // Initialize the app
 window.onload = function() {
-    displayCategories();
+    displayCategories('all');
 };
