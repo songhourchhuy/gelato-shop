@@ -29,12 +29,12 @@ function displayCategories(category = 'all') {
     const categoryDiv = document.getElementById(`${category}-gelato`);
     categoryDiv.style.display = 'block'; // Only show the clicked category
 
+    // Clear the category section before rendering new products
+    categoryDiv.innerHTML = `<h2>${capitalizeFirstLetter(category)} Gelato</h2>`;
+
     // Filter flavors based on the selected category
     const categoryItems = flavors.filter(flavor => flavor.category === category || category === 'all');
     
-    // Clear the category section before rendering
-    categoryDiv.innerHTML = `<h2>${capitalizeFirstLetter(category)} Gelato</h2>`;
-
     // Display the items in rows of 3
     categoryItems.forEach((flavor, index) => {
         const row = document.createElement('div');
