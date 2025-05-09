@@ -64,6 +64,40 @@ function updateCart() {
 function removeItem(index) {
     cart.splice(index, 1);
     updateCart();
+    displayCart();
+}
+
+function viewCart() {
+    displayCart();
+    document.getElementById('cart-modal').style.display = 'block';
+}
+
+function displayCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = ''; // Clear the current cart items
+
+    cart.forEach((cartItem, index) => {
+        const cartItemDiv = document.createElement('div');
+        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.innerHTML = `
+            <span>${cartItem.item} - $${cartItem.price}</span>
+            <button onclick="removeItem(${index})">Remove</button>
+        `;
+        cartItemsContainer.appendChild(cartItemDiv);
+    });
+
+    const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+    cartItemsContainer.innerHTML += `<h3>Total: $${totalPrice.toFixed(2)}</h3>`;
+}
+
+function clearCart() {
+    cart = [];
+    updateCart();
+    displayCart();
+}
+
+function closeCart() {
+    document.getElementById('cart-modal').style.display = 'none';
 }
 
 // Initialize the app
