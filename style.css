@@ -127,7 +127,7 @@ body {
     margin-right: auto;
 }
 
-/* Add to Cart Button */
+/* Button Styling for Add and Remove */
 button {
     background-color: #FFB400;
     border: none;
@@ -137,8 +137,6 @@ button {
     border-radius: 5px;
     margin-top: 10px;
     margin-bottom: 10px;
-    min-height: 40px;  /* Ensure button stays in the same position */
-    width: 100%; /* Button fills the container width */
 }
 
 button:hover {
