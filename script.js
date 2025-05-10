@@ -109,8 +109,12 @@ function removeItem(index) {
 function showCart() {
     renderCart();  // Render cart items inside the modal
     const cartModal = document.getElementById('cart-modal');
-    cartModal.style.display = 'block';
+    cartModal.style.position = 'fixed'; // Ensure the modal is fixed
+    cartModal.style.left = 'calc(50% - 200px)'; // Shift modal halfway to the left
+    cartModal.style.transform = 'translateX(0)'; // Ensure no horizontal transform
+    cartModal.style.display = 'block'; // Ensure the modal is visible
     cartModal.style.transform = 'translateY(0)'; // Slide up the modal
+
     document.getElementById('view-cart-btn').style.display = 'none'; // Hide the View Cart button
 }
 
