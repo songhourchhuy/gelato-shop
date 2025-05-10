@@ -3,6 +3,8 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     text-align: center;
+    margin: 0; /* Ensure no global margin is causing overflow */
+    padding: 0; /* Reset padding */
 }
 
 .container {
@@ -171,6 +173,34 @@ button:hover {
     background-color: #ff8c00;
 }
 
+/* Checkout Button (Same position as the View Cart button for mobile) */
+.checkout-btn {
+    position: fixed;
+    bottom: 80px; /* Same as View Cart but above it */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    background-color: #FFB400;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0; /* Remove curve, make it a cornered button */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px); /* Full width with padding */
+    max-width: 400px; /* Limit width for better alignment */
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.checkout-btn:hover {
+    background-color: #ff8c00;
+}
+
 /* Cart Icon inside View Cart Button */
 .cart-icon-container {
     position: relative;
@@ -200,19 +230,18 @@ button:hover {
 /* Modal for Cart (Initially hidden, will slide up from below the View Cart button) */
 .modal {
     display: none;
-    position: fixed;
-    bottom: 80px; /* Start just above the View Cart button */
-    left: 50%;
-    transform: translateX(-50%); /* Center the modal */
-    width: calc(100% - 40px); /* Ensure the modal width matches the button width */
-    max-width: 400px; /* Limit modal width to the same as the button */
-    background-color: rgba(0, 0, 0, 0.4);
-    z-index: 999;
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 130px; /* Position the modal above the Checkout button */
+    left: calc(50% - 200px); /* Move modal halfway to the left by adjusting X position */
+    transform: translateX(0); /* Remove the previous translateX adjustment */
+    width: calc(100% - 40px); /* Full width minus the left and right padding */
+    max-width: 400px; /* Limit width to a maximum of 400px */
+    z-index: 998; /* Ensure it's above other content */
     transition: transform 0.3s ease-out;
-    transform: translateY(100%); /* Start off-screen */
-    padding-left: 20px;
-    padding-right: 20px;
-    overflow-x: hidden; /* Prevent overflow */
+    transform: translateY(100%); /* Start off-screen (for animation) */
+    padding-left: 20px; /* Left padding */
+    padding-right: 20px; /* Right padding */
+    overflow-x: hidden; /* Prevent overflow horizontally */
 }
 
 /* Modal Content Styling */
@@ -221,35 +250,14 @@ button:hover {
     margin: 0 auto;
     padding: 20px;
     border-radius: 8px;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    overflow-y: auto;
+    width: 100%; /* Take up full width within the modal */
+    height: auto; /* Allow the height to adjust dynamically */
+    max-height: 80vh; /* Limit the height to 80% of the viewport height */
+    box-sizing: border-box; /* Ensure padding is included in width and height calculation */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
 }
 
-/* Cart Item Styling */
-.cart-item {
-    padding: 10px;
-    margin: 10px 0;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.cart-item button {
-    background-color: #FFB400;
-    padding: 5px 10px;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-.cart-item button:hover {
-    background-color: #ff8c00;
-}
-
-/* Close Button for Modal */
+/* Close Button */
 .close {
     color: #aaa;
     font-size: 28px;
