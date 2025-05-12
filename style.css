@@ -1,3 +1,4 @@
+
 /* General body and layout styles */
 body {
     font-family: Arial, sans-serif;
@@ -15,11 +16,29 @@ body {
     overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+/* Basic phone screen layer */
+.phone-screen {
+    width: 375px;            /* Standard mobile screen width */
+    height: 667px;           /* Standard mobile screen height */
+    background-color: #fff;  /* White background for the container */
+    padding: 20px;           /* Add padding inside the container */
+    margin: 0 auto;          /* Center the container on the page */
+    border-radius: 20px;     /* Optional: rounded corners for the phone screen */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+    position: relative;      /* Allows absolute positioning of inner elements */
+    overflow: hidden;        /* Ensures no content overflows the container */
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    align-items: center;     /* Horizontally center all content */
+    justify-content: center;  /* Center the content vertically */
+    justify-content: flex-start; /* Align items to the top */
+}
+
 /* Category Navigation Bar */
 .category-nav {
     display: flex;
     justify-content: flex-start;
-    margin-top: 20px;
+    margin-top:20px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding: 0 10px;
@@ -59,10 +78,10 @@ body {
     box-sizing: border-box; /* Ensure padding is included in width */
 }
 
-/* For larger screens, maintain 2 items per row */
+/* For larger screens, maintain 4 items per row */
 @media (min-width: 768px) {
     .category-items {
-        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
     }
 }
 
@@ -107,12 +126,12 @@ body {
 
 /* Item Price (Separate from the title, positioned above the button) */
 .item .price {
-    font-size: 14px;
+    font-size: 2px;
     font-weight: bold;
     color: #333;
     text-align: right;
     margin-top: auto; /* Push it to the bottom */
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     padding-right: 10px;
 }
 
@@ -317,4 +336,74 @@ body.modal-open {
 /* Hover effect for View Cart button */
 .view-cart-btn:hover {
     background-color: #ff8c00;
+}
+
+/* Banner container */
+.banner-container {
+    width: 100%;             /* Ensure the banner spans the full width of the phone screen */
+    height: 200px;           /* Fixed height for the banner */
+    overflow: hidden;        /* Ensure images do not overflow the container */
+    position: relative;
+    margin-bottom: 20px;
+    border: 0px solid #00000000;  /* Box border */
+    border-radius: 10px;        /* Round corners */
+    padding: 0px;              /* Add padding to the banner container */
+    background-color: #00000000;     /* transparent background for the box */
+    display: flex;
+    align-items: center;        /* Vertically align the content in the center */
+    justify-content: center;    /* Horizontally center the images */
+    margin-top: 20px;           /* Space from the top content */
+}
+
+/* Banner slides */
+.banner-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;  /* Smooth transition */
+    width: 100%;
+}
+
+.banner-slide {
+    min-width: 100%;       /* Ensure each slide takes up the full width */
+    height: 100%;          /* Set height to 100% to fill the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Banner images */
+.banner-image {
+    width: 100%;           /* Scale image width to fit container */
+    height: 100%;          /* Scale image height to fit container */
+    object-fit: cover;     /* Ensure the image covers the container */
+    display: block;
+    border-radius: 8px;    /* Optional: Rounded corners for images */
+}
+
+/* Navigation arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Add hover effect for arrows */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
