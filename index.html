@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelato Shop</title>
+    <link rel="stylesheet" href="style.css?v=1.0.0">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lagio Gelato</h1>
+
+       <!-- Banner Container (Carousel) -->
+<div id="banner-container" class="banner-container">
+    <!-- Left Arrow -->
+    <button class="prev" onclick="prevBanner()">←</button>
+    
+    <!-- Banner Slides -->
+    <div class="banner-slides">
+        <div class="banner-slide">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Banner/1.png?raw=true" alt="Promo 1" class="banner-image">
+        </div>
+        <div class="banner-slide">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Banner/2.png?raw=true" alt="Promo 2" class="banner-image">
+        </div>
+        <div class="banner-slide">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Banner/3.png?raw=true" alt="Promo 3" class="banner-image">
+        </div>
+        <div class="banner-slide">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Banner/4.png?raw=true" alt="Promo 4" class="banner-image">
+        </div>
+        <div class="banner-slide">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Banner/5.png?raw=true" alt="Promo 5" class="banner-image">
+        </div>
+    </div>
+
+    <!-- Right Arrow -->
+    <button class="next" onclick="nextBanner()">→</button>
+</div>
+
+        <!-- Categories Section -->
+        <div class="category-nav">
+            <div class="category-bar" onclick="filterCategory('normal')">Normal</div>
+            <div class="category-bar" onclick="filterCategory('special')">Special</div>
+            <div class="category-bar" onclick="filterCategory('takeaway')">TakeAway</div>
+            <div class="category-bar" onclick="filterCategory('add-ons')">Add-ons</div>
+        </div>
+
+        <div id="category-items" class="category-items">
+            <!-- Items will be dynamically loaded here based on category selection -->
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCart()">×</span>
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+        <button id="checkout-btn" onclick="checkout()">Checkout</button>
+        <button onclick="removeItem(${index})" class="remove-btn">
+    <!-- Trash Can Icon (replace with your own path) -->
+    <img src="path/to/your/trash-icon.svg" alt="Remove" class="remove-icon" />
+</button>
+
+    </div>
+</div>
+
+    <!-- View Cart Button with Cart Icon -->
+    <button id="view-cart-btn" class="view-cart-btn">
+        View Cart
+        <div id="cart-icon-container" class="cart-icon-container">
+            <img src="https://github.com/songhourchhuy/gelato-shop/blob/main/Mini%20App%20Icon/Cart.png?raw=true" alt="Cart" id="cart-icon" />
+            <span id="cart-count" class="cart-count">0</span>
+        </div>
+    </button>
+
+
+    <script src="script.js?v=1.0.0"></script>
+</body>
+</html>

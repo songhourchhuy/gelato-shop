@@ -1,0 +1,455 @@
+
+/* General body and layout styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0; /* Ensure no global margin is causing overflow */
+    padding: 0; /* Reset padding */
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Basic phone screen layer */
+.phone-screen {
+    width: 375px;            /* Standard mobile screen width */
+    height: 667px;           /* Standard mobile screen height */
+    background-color: #fff;  /* White background for the container */
+    padding: 20px;           /* Add padding inside the container */
+    margin: 0 auto;          /* Center the container on the page */
+    border-radius: 20px;     /* Optional: rounded corners for the phone screen */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+    position: relative;      /* Allows absolute positioning of inner elements */
+    overflow: hidden;        /* Ensures no content overflows the container */
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    align-items: center;     /* Horizontally center all content */
+    justify-content: center;  /* Center the content vertically */
+    justify-content: flex-start; /* Align items to the top */
+}
+
+/* Category Navigation Bar */
+.category-nav {
+    display: flex;
+    justify-content: flex-start;
+    margin-top:20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.category-bar {
+    padding: 10px 20px;
+    background-color: #FFB400;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.category-bar:hover {
+    background-color: #ff8c00;
+}
+
+/* Highlight active category */
+.category-bar.active {
+    background-color: #ff8c00;
+}
+
+/* Category items grid */
+.category-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 items per row */
+    gap: 20px;
+    margin-top: 20px;
+    justify-items: center; /* Center the items */
+    padding: 0 10px; /* Ensure padding is applied */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* For larger screens, maintain 4 items per row */
+@media (min-width: 768px) {
+    .category-items {
+        grid-template-columns: repeat(4, 1fr); /* 4 items per row */
+    }
+}
+
+/* For mobile screens, display 2 items per row */
+@media (max-width: 480px) {
+    .category-items {
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        padding: 0 10px; /* Ensure padding is applied */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+    }
+}
+
+/* Item Styling (Fixed size for all items) */
+.item {
+    background-color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 320px;  /* Ensure consistent height for each item */
+    width: 150px;   /* Fixed width for every item */
+    box-sizing: border-box; /* Prevent overflow */
+    max-width: 100%; /* Prevent items from going beyond container */
+    margin-bottom: 20px;
+    position: relative; /* Ensure proper positioning */
+}
+
+/* Item Title */
+.item h3 {
+    font-size: 14px;  /* Reduced font size */
+    font-weight: bold;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;  /* Allow text to wrap */
+    max-width: 100%;
+    text-align: center;
+}
+
+/* Item Price (Separate from the title, positioned above the button) */
+.item .price {
+    font-size: 2px;
+    font-weight: bold;
+    color: #333;
+    text-align: right;
+    margin-top: auto; /* Push it to the bottom */
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+/* Item Image */
+.item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Button Styling for Add and Remove */
+button {
+    background-color: #FFB400;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #ff8c00;
+}
+
+
+/* View Cart Button (Fixed to the bottom of the screen with padding) */
+.view-cart-btn {
+    position: fixed; /* Fixed positioning */
+    bottom: 0; /* Fix it to the very bottom of the screen */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Center it precisely */
+    background-color: #FFB400;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0; /* Remove curve, make it a cornered button */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000; /* Make sure it's on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px); /* Ensure it fits within the padding of the screen */
+    max-width: 400px; /* Limit max width to align with items */
+    padding-left: 30px; /* Padding for button */
+    padding-right: 30px; /* Padding for button */
+    box-sizing: border-box;
+}
+
+/* Style for cart items in the modal */
+.cart-item span {
+    font-size: 12px;  /* Adjust the font size for item names in the cart modal */
+    font-weight: bold;
+    color: #333; /* You can customize the color if needed */
+    display: inline-block;
+    margin-bottom: 5px; /* Optional: Adds some space below the name */
+}
+
+/* Price inside the cart modal */
+.cart-item .price {
+    font-size: 14px; /* Adjust price font size */
+    color: #FFB400;  /* Optional: Highlight the price with a different color */
+}
+
+/* Quantity buttons */
+.cart-item button {
+    font-size: 14px; /* Adjust button text size */
+    padding: 5px 10px; /* Optional: Adjust padding */
+}
+
+/* Optionally, style the 'Remove' button (trash can) */
+.cart-item .remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.cart-item .remove-icon {
+    width: 18px;
+    height: 18px; /* Adjust the size of the trash icon */
+}
+
+/* Ensure the button stays within screen bounds */
+body {
+    padding-bottom: 70px; /* Provide space at the bottom to ensure button visibility */
+}
+
+.view-cart-btn:hover {
+    background-color: #ff8c00;
+}
+
+/* Checkout Button (Same position as the View Cart button for mobile) */
+.checkout-btn {
+    position: fixed;
+    bottom: 80px; /* Same as View Cart but above it */
+    left: 50%;
+    transform: translateX(-50%); /* Center the button horizontally */
+    background-color: #FFB400;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0; /* Remove curve, make it a cornered button */
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px); /* Full width with padding */
+    max-width: 400px; /* Limit width for better alignment */
+    padding-left: 30px;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
+
+.checkout-btn:hover {
+    background-color: #ff8c00;
+}
+
+/* Cart Icon inside View Cart Button */
+.cart-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+#cart-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Full-screen grey overlay (blocks interaction with elements behind the modal) */
+.modal-overlay {
+    display: none; /* Initially hidden */
+    position: fixed; /* Cover the entire screen */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent grey background */
+    z-index: 998; /* Ensure it’s above the page content but below the modal */
+}
+
+
+/* Modal for Cart (Initially hidden, will slide up from below the View Cart button) */
+.modal {
+    display: none; /* Initially hidden */
+    position: fixed; /* Ensure it stays fixed on the screen */
+    bottom: 20px; /* Position the modal starting from the bottom of the View Cart button */
+    left: calc(50% - 200px); /* Center modal horizontally */
+    transform: translateY(100%); /* Start off-screen */
+    width: calc(100% - 40px); /* Full width minus the padding */
+    max-width: 400px; /* Limit width to a maximum of 400px */
+    z-index: 999; /* Ensure the modal is on top of the overlay */
+    transition: transform 0.3s ease-out; /* Smooth slide-up transition */
+    padding-left: 20px; /* Padding inside the modal */
+    padding-right: 20px; /* Padding inside the modal */
+    overflow-x: hidden; /* Prevent overflow horizontally */
+}
+
+/* Modal Content Styling */
+.modal-content {
+    background-color: #fff;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%; /* Take up full width within the modal */
+    height: auto; /* Allow the height to adjust dynamically */
+    max-height: 80vh; /* Limit the height to 80% of the viewport height */
+    box-sizing: border-box; /* Ensure padding is included in width and height calculation */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+}
+
+/* Close Button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+    cursor: pointer;
+}
+
+/* Style for the trash icon (remove button) */
+.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.remove-icon {
+    width: 18px;  /* Adjust the size of the trash icon */
+    height: 18px; /* Adjust the size of the trash icon */
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Disable interaction with the body behind the modal */
+body.modal-open {
+    pointer-events: none; /* Disable interaction with elements behind the modal */
+}
+
+/* Ensure the View Cart button is at the bottom of the screen (no change needed for this) */
+.view-cart-btn {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #FFB400;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px);
+    max-width: 400px;
+}
+
+/* Hover effect for View Cart button */
+.view-cart-btn:hover {
+    background-color: #ff8c00;
+}
+
+/* Banner container */
+.banner-container {
+    width: 100%;             /* Ensure the banner spans the full width of the phone screen */
+    height: 200px;           /* Fixed height for the banner */
+    overflow: hidden;        /* Ensure images do not overflow the container */
+    position: relative;
+    margin-bottom: 20px;
+    border: 0px solid #00000000;  /* Box border */
+    border-radius: 10px;        /* Round corners */
+    padding: 0px;              /* Add padding to the banner container */
+    background-color: #00000000;     /* transparent background for the box */
+    display: flex;
+    align-items: center;        /* Vertically align the content in the center */
+    justify-content: center;    /* Horizontally center the images */
+    margin-top: 20px;           /* Space from the top content */
+}
+
+/* Banner slides */
+.banner-slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;  /* Smooth transition */
+    width: 100%;
+}
+
+.banner-slide {
+    min-width: 100%;       /* Ensure each slide takes up the full width */
+    height: 100%;          /* Set height to 100% to fill the container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Banner images */
+.banner-image {
+    width: 100%;           /* Scale image width to fit container */
+    height: 100%;          /* Scale image height to fit container */
+    object-fit: cover;     /* Ensure the image covers the container */
+    display: block;
+    border-radius: 8px;    /* Optional: Rounded corners for images */
+}
+
+/* Navigation arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 10px;
+    z-index: 10;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+    transform: translateY(-50%);
+}
+
+.next {
+    right: 10px;
+    transform: translateY(-50%);
+}
+
+/* Add hover effect for arrows */
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}

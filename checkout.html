@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+
+        <!-- Pick up or Delivery Option -->
+        <div class="checkout-section">
+            <h2>Select Delivery Option</h2>
+            <label><input type="radio" name="deliveryOption" value="pickup" checked> Pick up</label>
+            <label><input type="radio" name="deliveryOption" value="delivery"> Delivery</label>
+        </div>
+
+        <!-- Summary List of Selected Items -->
+        <div class="checkout-section">
+            <h2>Selected Items</h2>
+            <div id="selected-items-summary">
+                <!-- Dynamically filled with cart items -->
+                <div id="checkout-cart-items">
+                    <!-- Cart items will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Add More Items Button -->
+        <div class="checkout-section">
+            <button onclick="addMoreItems()">Add More Items</button>
+        </div>
+
+        <!-- Promo Code -->
+        <div class="checkout-section">
+            <h2>Promo Code</h2>
+            <input type="text" id="promo-code" placeholder="Enter promo code">
+            <button onclick="applyPromoCode()">Apply</button>
+        </div>
+
+        <!-- Payment Method -->
+        <div class="checkout-section">
+            <h2>Select Payment Method</h2>
+            <label><input type="radio" name="paymentMethod" value="creditCard"> Credit Card</label>
+            <label><input type="radio" name="paymentMethod" value="paypal"> PayPal</label>
+            <label><input type="radio" name="paymentMethod" value="cash"> Cash on Delivery</label>
+        </div>
+
+        <!-- Continue Button -->
+        <div class="checkout-section">
+            <button onclick="continueToReceipt()">Continue to Receipt</button>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
