@@ -1,0 +1,268 @@
+
+/* General body and layout styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0; /* Ensure no global margin is causing overflow */
+    padding: 0; /* Reset padding */
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Basic phone screen layer */
+.phone-screen {
+    width: 375px;            /* Standard mobile screen width */
+    height: 667px;           /* Standard mobile screen height */
+    background-color: #fff;  /* White background for the container */
+    padding: 20px;           /* Add padding inside the container */
+    margin: 0 auto;          /* Center the container on the page */
+    border-radius: 20px;     /* Optional: rounded corners for the phone screen */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Optional: shadow for better visibility */
+    position: relative;      /* Allows absolute positioning of inner elements */
+    overflow: hidden;        /* Ensures no content overflows the container */
+    display: flex;
+    flex-direction: column;  /* Stack elements vertically */
+    align-items: center;     /* Horizontally center all content */
+    justify-content: center;  /* Center the content vertically */
+    justify-content: flex-start; /* Align items to the top */
+}
+
+/* Header Styling */
+.checkout-header {
+    display: flex;
+    justify-content: center;  /* Center the title */
+    align-items: center;      /* Vertically center the items */
+    background-color: #FFB400;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 100; /* Ensure header is on top of other content */
+}
+
+.checkout-header h1 {
+    font-size: 24px;
+    color: white;
+    margin: 0; /* Remove default margin */
+}
+
+/* Back Button (Positioned in the top left of the header) */
+.back-btn {
+    position: absolute;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+}
+
+.back-btn:hover {
+    color: #ff8c00; /* Add hover effect */
+}
+
+/* Delivery Option Section */
+.delivery-option {
+     display: flex; /* Use flexbox for horizontal layout */
+    justify-content: space-between; /* Space between the text and dropdown */
+    align-items: center; /* Vertically align text and dropdown */
+    width: 90%;
+    background-color: #fff;  /* White background for the container */
+    padding: 20px;  /* Add padding around the container */
+    border-radius: 8px;  /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+}
+
+/* Label for the Select Delivery Option text */
+.delivery-option h2 {
+    margin-right: 0px; /* Space between the label and the dropdown */
+    font-size: 18px; /* Reduce font size */
+    color: #333; /* Text color */
+}
+
+
+/* Dropdown Styling */
+#delivery-option {
+    padding: 5px 1px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;  /* Ensure the dropdown has a white background */
+    width: 100px; /* Control the width of the dropdown */
+}
+
+/
+* For mobile screens, make sure everything is vertically aligned */
+@media (max-width: 480px) {
+    .delivery-option {
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Ensure items are on opposite sides */
+        align-items: center; /* Center them vertically */
+        width: 100%; /* Ensure it takes the full width of the screen */
+    }
+
+    .delivery-option h2 {
+         margin: 0; /* Remove any margin */
+        font-size: 9px; /* Slightly reduce the font size on mobile */
+    }
+
+    #delivery-option {
+        width: 50%; /* Make the dropdown take up 50% of the width */
+    }
+}
+
+/* Styles for checkout.html */
+
+/* Checkout Container */
+.checkout-container {
+    padding: 20px;
+}
+
+/* Container for Selected Items */
+.selected-items-container {
+    margin-top: 5px; /* Space between delivery option and selected items */
+    background-color: #fff;  /* White background */
+    padding: 20px;           /* Padding around the container */
+    border-radius: 8px;      /* Rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
+    margin-bottom: 0px;     /* Space below the container */
+
+}
+
+/* Title for the selected items section */
+.selected-items-container h2 {
+    text-align: left;
+    font-size: 16px; /* Font size for the section title */
+    margin-bottom: 10px; /* Space below the title */
+    margin-top: -10px; /* Space below the title */
+    margin-left: -5px; /* Space below the title */
+    color: #333;  /* Text color */
+}
+
+/* Style for each selected item list */
+.selected-item-list {
+    margin-bottom: 15px;  /* Space between each item */
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Style for the price of each item */
+.selected-item-price {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Style for Total Price */
+.total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px; /* Space before total */
+    margin-bottom: 30px; /* Space before total */
+    text-align: right; /* Align total price to the right */
+    color: #FFB400;
+}
+
+/* Add More Items Button */
+.add-more-btn {
+    background-color: #FFB400; /* Yellow background */
+    border: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 50px;
+    display: block; /* Display as block element */
+    width: auto;  /* Scale to the content width */
+    box-sizing: border-box;
+    position: absolute;  /* Position it absolutely within the parent container */
+    bottom: 10px; /* Space from the bottom */
+    right: 20px; /* Space from the right */
+}
+
+/* Hover effect for Add More button */
+.add-more-btn:hover {
+    background-color: #ff8c00; /* Darker yellow on hover */
+}
+
+/* Selected Items Container (ensure relative positioning for absolute positioning of button) */
+.selected-items-container {
+    position: relative; /* Make sure the button is positioned relative to this container */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkout Section for Payment Method & Promo Code */
+.checkout-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Payment Method and Promo Code Layout */
+./* Payment Method and Promo Code Layout */
+.payment-method-container, .promo-code-container {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    margin-bottom: 20px;
+}
+
+/* Title for Payment Method or Promo Code */
+.payment-method-container h2, .promo-code-container h2 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0; /* Remove default margin */
+    margin-bottom: 10px; /* Remove default margin */
+    text-align: right; /* Align to the right */
+    display: flex; /* Show the heading */
+}
+
+/* Text Style */
+#payment-method-text, #promo-code-text {
+    font-size: 14px;
+    color: #333;
+    text-align: left;
+    margin-top: 10px; /* Space between lines */
+}
+
+/* Add space between lines */
+.payment-method-info, .promo-code-info {
+    margin-bottom: 10px; /* Space between lines */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Icon Styling */
+.payment-method-icon, .offer-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Flex box adjustment for proper spacing */
+.payment-method-info, .promo-code-info {
+    display: flex;
+    flex-direction: row; /* Align the text and icons on one line */
+    align-items: center;
+    width: 100%;
+}
+
+.payment-method-info .arrow, .promo-code-info .arrow {
+    font-size: 20px;
+    color: #FFB400;
+    cursor: pointer;
+}
