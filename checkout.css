@@ -254,13 +254,6 @@ body {
 }
 
 /* Flex box adjustment for proper spacing */
-.payment-method-info, .promo-code-info {
-    display: flex;
-    flex-direction: row; /* Align the text and icons on one line */
-    align-items: center;
-    width: 100%;
-}
-
 .payment-method-info .arrow, .promo-code-info .arrow {
     font-size: 20px;
     color: #FFB400;
