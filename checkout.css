@@ -68,20 +68,19 @@ body {
 
 /* Delivery Option Section */
 .delivery-option {
-     display: flex; /* Use flexbox for horizontal layout */
+    display: flex; /* Use flexbox for horizontal layout */
     justify-content: space-between; /* Space between the text and dropdown */
     align-items: center; /* Vertically align text and dropdown */
     width: 90%;
     background-color: #fff;  /* White background for the container */
-    padding: 20px;  /* Add padding around the container */
+    padding: -20px;  /* Add padding around the container */
     border-radius: 8px;  /* Rounded corners */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* Soft shadow */
 }
 
-/* Label for the Select Delivery Option text */
+/* Label for tvery Option text */
 .delivery-option h2 {
     margin-right: 0px; /* Space between the label and the dropdown */
-    font-size: 18px; /* Reduce font size */
+    font-size: 18px; /* he Select DeliReduce font size */
     color: #333; /* Text color */
 }
 
@@ -204,7 +203,8 @@ body {
 
 /* Checkout Section for Payment Method & Promo Code */
 .checkout-section {
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding: 20px;
     background-color: white;
     border-radius: 8px;
@@ -215,7 +215,7 @@ body {
 .payment-method-container, .promo-code-container {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 /* Title for Payment Method or Promo Code */
@@ -224,7 +224,7 @@ body {
     font-weight: bold;
     color: #333;
     margin: 0; /* Remove default margin */
-    margin-bottom: 10px; /* Remove default margin */
+    margin-bottom: 25px; /* Remove default margin */
     text-align: right; /* Align to the right */
     display: flex; /* Show the heading */
 }
@@ -234,12 +234,12 @@ body {
     font-size: 14px;
     color: #333;
     text-align: left;
-    margin-top: 10px; /* Space between lines */
+    margin-top: 5px; /* Space between lines */
 }
 
 /* Add space between lines */
 .payment-method-info, .promo-code-info {
-    margin-bottom: 10px; /* Space between lines */
+    margin-bottom: 5px; /* Space between lines */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -254,9 +254,11 @@ body {
 
 /* Flex box adjustment for proper spacing */
 .payment-method-info .arrow, .promo-code-info .arrow {
-    font-size: 16px;
+    font-size: 18px;
     color: #000;
     cursor: pointer;
+    margin-top: 0px;
     display: inline-block;  /* Ensures the icon aligns properly */
+    margin-left: auto; /* This ensures the arrow will move to the right */
 }
 
