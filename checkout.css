@@ -262,3 +262,64 @@ body {
     margin-left: auto; /* This ensures the arrow will move to the right */
 }
 
+/* Footer Section - Container */
+.order-section {
+    position: fixed; /* Fixed position at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: #333;  /* Dark background */
+    padding: 10px 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Optional: Soft shadow */
+}
+
+/* Order & Pick Up Section */
+.store-selection {
+    display: flex;
+    flex-direction: column; /* Stack the text and dropdown vertically */
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    gap: 10px; /* Space between dropdown and button */
+        font-size: 14px; /* Reduce font size */
+    color: white;
+    margin-right: 10px;
+    width: 80%; /* Adjust width of the left section */
+    align-items: flex-start; /* Align content to the left */
+}
+
+/* Store Selection Dropdown */
+#store-select {
+    padding: 8px 12px;
+    font-size: 14px; /* Adjust font size for readability */
+    width: 200px; /* Adjust width of the dropdown */
+    border: none; /* Remove default border */
+    border-bottom: 2px solid #ccc; /* Add a straight underline */
+    background: transparent; /* Remove the background */
+    color: #ffffff; /* Text color */
+    appearance: none; /* Remove default dropdown arrow */
+    -webkit-appearance: none; /* For Safari */
+    -moz-appearance: none; /* For Firefox */
+    outline: none; /* Remove the focus outline */
+    padding-right: 20px; /* Add space for the custom arrow */
+}
+
+/* Custom dropdown arrow */
+#store-select::after {
+    content: ''; /* Empty content */
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    width: 16px; /* Set the width of your custom icon */
+    height: 16px; /* Set the height of your custom icon */
+    background-image: url('path/to/your/icon.png'); /* Replace with the path to your icon */
+    background-size: cover; /* Ensure the icon fits */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+}
+
+
+
+
