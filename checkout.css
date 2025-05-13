@@ -282,20 +282,19 @@ body {
     display: flex;
     flex-direction: column; /* Stack the text and dropdown vertically */
     justify-content: flex-start; /* Align items to the left */
-    align-items: center;
-    gap: 10px; /* Space between dropdown and button */
-        font-size: 14px; /* Reduce font size */
+    align-items: flex-start; /* Align content to the left */
+    gap: 0px; /* No space between dropdown and button */
+    font-size: 14px; /* Reduce font size */
     color: white;
     margin-right: 10px;
-    width: 80%; /* Adjust width of the left section */
-    align-items: flex-start; /* Align content to the left */
+    width: 100%; /* Full width for the container */
 }
 
 /* Store Selection Dropdown */
 #store-select {
     padding: 8px 12px;
     font-size: 14px; /* Adjust font size for readability */
-    width: 200px; /* Adjust width of the dropdown */
+    width: 100%; /* Make the dropdown take up full width */
     border: none; /* Remove default border */
     border-bottom: 2px solid #ccc; /* Add a straight underline */
     background: transparent; /* Remove the background */
@@ -304,20 +303,58 @@ body {
     -webkit-appearance: none; /* For Safari */
     -moz-appearance: none; /* For Firefox */
     outline: none; /* Remove the focus outline */
-    padding-right: 20px; /* Add space for the custom arrow */
+    padding-right: 30px; /* Add space for the custom arrow */
+    position: relative; /* Add position relative for the arrow */
+    line-height: 1.5; /* Ensure proper vertical alignment for text */
 }
 
 /* Custom dropdown arrow */
 #store-select::after {
     content: ''; /* Empty content */
     position: absolute;
-    right: 10px;
-    top: 12px;
+    right: 10px; /* Position the arrow on the right */
+    top: 50%; /* Align vertically with the selected text */
+    transform: translateY(-50%); /* Center it vertically */
     width: 16px; /* Set the width of your custom icon */
     height: 16px; /* Set the height of your custom icon */
-    background-image: url('path/to/your/icon.png'); /* Replace with the path to your icon */
-    background-size: cover; /* Ensure the icon fits */
+    background-image: url('https://raw.githubusercontent.com/songhourchhuy/gelato-shop/main/Mini%20App%20Icon/down-arrow.png'); /* Ensure the link is raw */
+    background-size: contain; /* Ensure the icon fits properly */
     background-repeat: no-repeat; /* Prevent repeating the background image */
+    pointer-events: none; /* Ensures the icon doesn't block the dropdown */
+}
+
+
+
+/* Order Button Container */
+.order-button-container {
+    display: flex;
+    justify-content: flex-start; /* Align the button to the left */
+    align-items: center; /* Center the button vertically */
+    width: 20%; /* Ensure the container spans the width */
+    padding: 0px; /* Padding around the container */
+    background-color: #FFB400; /* Yellow background */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+    margin-top: 20px; /* Space above the button */
+}
+
+/* Order Button Styling */
+.order-button-container button {
+    background-color: #FFB400; /* Yellow background for the button */
+    color: white; /* White text color */
+    padding: 8px 20px; /* Adjust padding for a smaller button */
+    font-size: 15px; /* Font size for the button text */
+    border: none; /* Remove default button border */
+    border-radius: 8px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor to indicate clickable */
+    text-align: center; /* Center the text inside the button */
+    font-weight: bold; /* Bold text for better visibility */
+}
+
+/* Button Hover Effect */
+.order-button-container button:hover {
+    background-color: #ff8c00; /* Darker yellow on hover */
+    transition: background-color 0.3s ease; /* Smooth transition effect */
 }
 
 
