@@ -255,8 +255,9 @@ body {
 
 /* Flex box adjustment for proper spacing */
 .payment-method-info .arrow, .promo-code-info .arrow {
-    font-size: 20px;
+    font-size: 16px;
     color: #000;
+    cursor: pointer;
     display: inline-block;  /* Ensures the icon aligns properly */
 }
 
