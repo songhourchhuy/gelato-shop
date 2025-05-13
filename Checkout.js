@@ -102,7 +102,7 @@ if (!promoCode) {
 
 // Function to navigate back to checkout page
 function goBack() {
-    window.location.href = 'checkout.html';  // Navigate back to checkout page
+    window.location.href = 'index.html';  // Navigate back to checkout page
 }
 
 
