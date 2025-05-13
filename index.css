@@ -388,7 +388,8 @@ body.modal-open {
 /* Banner container */
 .banner-container {
     width: 100%;             /* Ensure the banner spans the full width of the phone screen */
-    height: 200px;           /* Fixed height for the banner */
+     height: auto;            /* Set height to auto to ensure proper scaling */
+    max-height: 300px;       /* Add a max-height for better display control */
     overflow: hidden;        /* Ensure images do not overflow the container */
     position: relative;
     margin-bottom: 20px;
@@ -425,7 +426,15 @@ body.modal-open {
     display: block;
     border-radius: 8px;    /* Optional: Rounded corners for images */
 }
-
+/* For iOS and other mobile devices */
+@media (max-width: 768px) {
+    .banner-container {
+        height: 200px;         /* Adjust the height for mobile devices */
+    }
+    .banner-image {
+        object-fit: cover;     /* Keep the image responsive */
+    }
+}
 /* Navigation arrows */
 .prev, .next {
     display: none;
