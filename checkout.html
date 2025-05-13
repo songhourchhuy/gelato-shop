@@ -4,54 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="checkout.css">
 </head>
 <body>
-    <div class="checkout-container">
-        <h1>Checkout</h1>
 
-        <!-- Pick up or Delivery Option -->
-        <div class="checkout-section">
+  <!-- Header Section -->
+    <header class="checkout-header">
+        <!-- Back Button (Left Aligned) -->
+        <button id="back-btn" onclick="goBack()" class="back-btn">←</button>
+
+        <!-- Checkout Title (Centered) -->
+        <h1>Checkout</h1>
+    </header>
+
+    <!-- Pick up or Delivery Option (Left side and dropdown) -->
+    <div class="checkout-section">
+        <div class="delivery-option">
             <h2>Select Delivery Option</h2>
-            <label><input type="radio" name="deliveryOption" value="pickup" checked> Pick up</label>
-            <label><input type="radio" name="deliveryOption" value="delivery"> Delivery</label>
+            <select id="delivery-option" name="deliveryOption">
+                <option value="pickup">Pick Up</option>
+                <option value="delivery">Delivery</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Selected Items Section -->
+    <div class="selected-items-container">
+        <h2>Order Summary</h2>
+        <div id="selected-items-list">
+            <!-- Dynamically filled with selected items -->
         </div>
 
-        <!-- Summary List of Selected Items -->
-        <div class="checkout-section">
-            <h2>Selected Items</h2>
-            <div id="selected-items-summary">
-                <!-- Dynamically filled with cart items -->
-                <div id="checkout-cart-items">
-                    <!-- Cart items will be dynamically inserted here -->
-                </div>
-            </div>
+        <!-- Total Price -->
+        <div class="total-price">
+            Total: $<span id="total-price">0.00</span>
         </div>
 
         <!-- Add More Items Button -->
-        <div class="checkout-section">
-            <button onclick="addMoreItems()">Add More Items</button>
+        <button class="add-more-btn" onclick="addMoreItems()">Add More Items</button>
+    </div>
+
+    <!-- Promo Code and Payment Method Section in a single container -->
+    <div class="checkout-section">
+        <!-- Payment Method Container -->
+        <div class="payment-method-container">
+            <h2>Payment Method</h2>
+            <div class="payment-method-info">
+                <img src="https://image.shutterstock.com/image-vector/credit-card-icon-vector-260nw-543908199.jpg" alt="Payment Method Icon" class="payment-method-icon" />
+                <span id="payment-method-text">Select payment method</span>
+                <span class="arrow">></span>
+            </div>
         </div>
 
-        <!-- Promo Code -->
-        <div class="checkout-section">
-            <h2>Promo Code</h2>
-            <input type="text" id="promo-code" placeholder="Enter promo code">
-            <button onclick="applyPromoCode()">Apply</button>
+        <!-- Promo Code Container -->
+        <div class="promo-code-container">
+            <div class="promo-code-info">
+                <img src="https://image.shutterstock.com/image-vector/offer-icon-260nw-1191413735.jpg" alt="Offer Icon" class="offer-icon" />
+                <span id="promo-code-text">Use Offers</span>
+                <span class="arrow">></span>
+            </div>
         </div>
+    </div>
 
-        <!-- Payment Method -->
-        <div class="checkout-section">
-            <h2>Select Payment Method</h2>
-            <label><input type="radio" name="paymentMethod" value="creditCard"> Credit Card</label>
-            <label><input type="radio" name="paymentMethod" value="paypal"> PayPal</label>
-            <label><input type="radio" name="paymentMethod" value="cash"> Cash on Delivery</label>
-        </div>
-
-        <!-- Continue Button -->
-        <div class="checkout-section">
-            <button onclick="continueToReceipt()">Continue to Receipt</button>
-        </div>
+    <!-- Continue Button -->
+    <div class="checkout-section">
+        <button onclick="continueToReceipt()">Continue to Receipt</button>
     </div>
 
     <script src="checkout.js"></script>
