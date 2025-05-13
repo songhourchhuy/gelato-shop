@@ -263,5 +263,30 @@ function nextBanner() {
 // Start the automatic banner cycle every 3 seconds
 setInterval(cycleBanners, 3000);
 
+// Function to add swipe functionality
+let touchStartX = 0;
+let touchEndX = 0;
+
+bannerSlidesContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, false);
+
+bannerSlidesContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+}, false);
+
+// Function to handle swipe gesture
+function handleSwipeGesture() {
+    if (touchStartX - touchEndX > 50) {
+        // Swipe left (next banner)
+        nextBanner();
+    }
+    if (touchEndX - touchStartX > 50) {
+        // Swipe right (previous banner)
+        prevBanner();
+    }
+}
+
 // Initialize the first banner to be visible
 showBanner(currentBannerIndex);
