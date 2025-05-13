@@ -257,7 +257,6 @@ body {
 .payment-method-info .arrow, .promo-code-info .arrow {
     font-size: 20px;
     color: #000;
-    cursor: pointer;
     display: inline-block;  /* Ensures the icon aligns properly */
 }
 
