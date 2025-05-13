@@ -1,7 +1,7 @@
 // Fetch the cart data from localStorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Default to empty array if no cart
 
-// JavaScript function to navigate back to the home page
+// Function to go back to the home page
 function goBack() {
     window.location.href = "index.html";  // Redirect to index.html
 }
@@ -68,10 +68,14 @@ window.onload = function() {
 };
 
 
-// Function to handle the "Add More Items" button
+// Function to add more items (redirect to home page)
 function addMoreItems() {
-    window.location.href = "index.html";  // Redirect to the item listing page
+    window.location.href = "index.html";  // Redirect to index.html
 }
+
+// Add event listeners to buttons
+document.getElementById("back-btn").addEventListener("click", goBack);
+document.getElementById("add-more-btn").addEventListener("click", addMoreItems);
 
 // Function to apply promo code
 function applyPromoCode() {
