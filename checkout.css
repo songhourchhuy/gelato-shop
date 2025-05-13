@@ -212,7 +212,6 @@ body {
 }
 
 /* Payment Method and Promo Code Layout */
-./* Payment Method and Promo Code Layout */
 .payment-method-container, .promo-code-container {
     display: flex;
     flex-direction: column; /* Stack elements vertically */
