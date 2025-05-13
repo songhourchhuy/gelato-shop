@@ -263,6 +263,8 @@ body {
 
 .payment-method-info .arrow, .promo-code-info .arrow {
     font-size: 20px;
-    color: #00000;
+    color: #FFB400;
     cursor: pointer;
+    display: inline-block;  /* Ensures the icon aligns properly */
 }
+
