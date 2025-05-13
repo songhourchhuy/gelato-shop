@@ -70,10 +70,23 @@
         </div>
     </div>
 
-    <!-- Continue Button -->
-    <div class="checkout-section">
-        <button onclick="continueToReceipt()">Confirm Order</button>
+   <!-- Store Selection and Confirm Order -->
+<div class="order-section">
+    <!-- Store Selection Dropdown or Button -->
+    <div class="store-selection">
+        <label for="store-select">ORDER & PICK UP</label>
+        <select id="store-select">
+            <option value="LagioGelato-TTP">LagioGelato TTP</option>
+            <option value="LagioGelato-ExSq">LagioGelato ExSq</option>
+            <option value="LagioGelato-KohPich">LagioGelato KohPich</option>
+        </select>
     </div>
+
+    <!-- Confirm Order Button -->
+    <div class="confirm-order-container">
+        <button onclick="confirmOrder()">Order</button>
+    </div>
+</div>
 
     <script src="checkout.js"></script>
 </body>
